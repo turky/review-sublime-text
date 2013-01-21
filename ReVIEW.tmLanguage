@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>re</string>
+	</array>
+	<key>name</key>
+	<string>ReVIEW format</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>header line</string>
+			<key>match</key>
+			<string>^=+ .+$</string>
+			<key>name</key>
+			<string>keyword.text.review.header</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>header line</string>
+			<key>match</key>
+			<string>^ +\* .+$</string>
+			<key>name</key>
+			<string>keyword.text.review.dl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>image block</string>
+			<key>match</key>
+			<string>^//image[^[]]*]</string>
+			<key>name</key>
+			<string>keyword.text.review.image</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>//caution{</string>
+			<key>comment</key>
+			<string>caution</string>
+			<key>end</key>
+			<string>//}</string>
+			<key>name</key>
+			<string>keyword.text.review.caution</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>//note{</string>
+			<key>comment</key>
+			<string>note</string>
+			<key>end</key>
+			<string>//}</string>
+			<key>name</key>
+			<string>keyword.text.review.note</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline href link</string>
+			<key>match</key>
+			<string>@&lt;(href|table|img)&gt;{[^{]+}</string>
+			<key>name</key>
+			<string>keyword.text.review.inline.link</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline character decoration</string>
+			<key>match</key>
+			<string>@&lt;(b|i|tt)&gt;{[^{]+}</string>
+			<key>name</key>
+			<string>keyword.text.review.inline.decoration</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.review</string>
+	<key>uuid</key>
+	<string>27585c4b-1fc5-4c7c-9c56-27acab912039</string>
+</dict>
+</plist>

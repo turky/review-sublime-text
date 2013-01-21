@@ -1,0 +1,37 @@
+{ "name": "ReVIEW format",
+  "scopeName": "text.review",
+  "fileTypes": ["re"],
+  "patterns": [
+    {  "name": "keyword.text.review.header",
+       "match": "^=+ .+$",
+       "comment": "header line"
+  	},
+    {  "name": "keyword.text.review.dl",
+       "match": "^ +\\* .+$",
+       "comment": "header line"
+    },
+  	{  "name": "keyword.text.review.image",
+       "match": "^//image[^[]]*]",
+       "comment": "image block"
+  	},
+  	{  "name": "keyword.text.review.caution",
+       "begin": "//caution{",
+       "end": "//}",
+       "comment": "caution"
+  	},
+  	{  "name": "keyword.text.review.note",
+       "begin": "//note{",
+       "end": "//}",
+       "comment": "note"
+  	},
+    {  "name": "keyword.text.review.inline.link",
+       "match": "@<(href|table|img)>{[^{]+}",
+       "comment": "inline href link"
+    },
+    {  "name": "keyword.text.review.inline.decoration",
+       "match": "@<(b|i|tt)>{[^{]+}",
+       "comment": "inline character decoration"
+    }
+  ],
+  "uuid": "27585c4b-1fc5-4c7c-9c56-27acab912039"
+}
