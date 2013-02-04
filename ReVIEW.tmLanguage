@@ -26,77 +26,83 @@
 			<key>end</key>
 			<string>^//}$</string>
 			<key>name</key>
-			<string>string.unquoted.block.image.review</string>
+			<string>string.unquoted.block.begin.image.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//table\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>comment</key>
 			<string>table block</string>
 			<key>end</key>
 			<string>^//}$</string>
+			<key>match</key>
+			<string>^//table\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>name</key>
-			<string>string.unquoted.block.table.review</string>
+			<string>string.unquoted.block.begin.table.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//list\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>comment</key>
 			<string>list block</string>
 			<key>end</key>
 			<string>^//}$</string>
+			<key>match</key>
+			<string>^//list\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>name</key>
-			<string>string.unquoted.block.list.review</string>
+			<string>string.unquoted.block.begin.list.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//emlist{$</string>
 			<key>comment</key>
 			<string>embeded list block</string>
 			<key>end</key>
 			<string>^//}$</string>
+			<key>match</key>
+			<string>^//emlist{$</string>
 			<key>name</key>
-			<string>string.unquoted.block.emlist.review</string>
+			<string>string.unquoted.block.begin.emlist.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//cmd{$</string>
 			<key>comment</key>
 			<string>cmd block</string>
 			<key>end</key>
 			<string>^//}$</string>
+			<key>match</key>
+			<string>^//cmd{$</string>
 			<key>name</key>
-			<string>string.unquoted.block.cmd.review</string>
+			<string>string.unquoted.block.begin.cmd.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//quote{$</string>
 			<key>comment</key>
 			<string>embeded list block</string>
 			<key>end</key>
 			<string>^//}$</string>
+			<key>match</key>
+			<string>^//quote{$</string>
 			<key>name</key>
-			<string>string.unquoted.block.quote.review</string>
+			<string>string.unquoted.block.begin.quote.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//caution{$</string>
 			<key>comment</key>
 			<string>caution block</string>
 			<key>end</key>
 			<string>^//}$</string>
+			<key>match</key>
+			<string>^//caution{$</string>
 			<key>name</key>
-			<string>string.unquoted.block.caution.review</string>
+			<string>string.unquoted.block.begin.caution.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//note{</string>
 			<key>comment</key>
-			<string>note block</string>
-			<key>end</key>
+			<string>note block begin</string>
+			<key>match</key>
+			<string>^//note{</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.note.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>block end</string>
+			<key>match</key>
 			<string>//}</string>
 			<key>name</key>
-			<string>string.unquoted.block.note.review</string>
+			<string>string.unquoted.block.end.block.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>
