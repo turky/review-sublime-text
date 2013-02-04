@@ -16,59 +16,183 @@
 			<key>match</key>
 			<string>^=+ .+$</string>
 			<key>name</key>
-			<string>keyword.text.review.header</string>
+			<string>entity.name.tag.header.review</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>header line</string>
-			<key>match</key>
-			<string>^ +\* .+$</string>
-			<key>name</key>
-			<string>keyword.text.review.dl</string>
-		</dict>
-		<dict>
+			<key>begin</key>
+			<string>^//image\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>comment</key>
 			<string>image block</string>
+			<key>end</key>
+			<string>^//}$</string>
+			<key>name</key>
+			<string>string.unquoted.block.image.review</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^//table\[[^\[]*\]\[[^\[]*\]{$</string>
+			<key>comment</key>
+			<string>table block</string>
+			<key>end</key>
+			<string>^//}$</string>
+			<key>name</key>
+			<string>string.unquoted.block.table.review</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^//list\[[^\[]*\]\[[^\[]*\]{$</string>
+			<key>comment</key>
+			<string>list block</string>
+			<key>end</key>
+			<string>^//}$</string>
+			<key>name</key>
+			<string>string.unquoted.block.list.review</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^//emlist{$</string>
+			<key>comment</key>
+			<string>embeded list block</string>
+			<key>end</key>
+			<string>^//}$</string>
+			<key>name</key>
+			<string>string.unquoted.block.emlist.review</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^//cmd{$</string>
+			<key>comment</key>
+			<string>cmd block</string>
+			<key>end</key>
+			<string>^//}$</string>
+			<key>name</key>
+			<string>string.unquoted.block.cmd.review</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^//quote{$</string>
+			<key>comment</key>
+			<string>embeded list block</string>
+			<key>end</key>
+			<string>^//}$</string>
+			<key>name</key>
+			<string>string.unquoted.block.quote.review</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^//caution{$</string>
+			<key>comment</key>
+			<string>caution block</string>
+			<key>end</key>
+			<string>^//}$</string>
+			<key>name</key>
+			<string>string.unquoted.block.caution.review</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^//note{</string>
+			<key>comment</key>
+			<string>note block</string>
+			<key>end</key>
+			<string>//}</string>
+			<key>name</key>
+			<string>string.unquoted.block.note.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>footnote text</string>
 			<key>match</key>
-			<string>^//image[^[]]*]</string>
+			<string>^//footnote\[[^\[]*\]\[[^\[]*\]</string>
 			<key>name</key>
-			<string>keyword.text.review.image</string>
+			<string>string.unquoted.block.footnote.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>//caution{</string>
 			<key>comment</key>
-			<string>caution</string>
-			<key>end</key>
-			<string>//}</string>
+			<string>embeded raw markup</string>
+			<key>match</key>
+			<string>//raw\[\|[^\[]*\|[^\[]*\] *$</string>
 			<key>name</key>
-			<string>keyword.text.review.caution</string>
+			<string>string.unquoted.block.raw.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>//note{</string>
 			<key>comment</key>
-			<string>note</string>
-			<key>end</key>
-			<string>//}</string>
+			<string>itemzed line</string>
+			<key>match</key>
+			<string>^ \* </string>
 			<key>name</key>
-			<string>keyword.text.review.note</string>
+			<string>punctuation.definition.tag.item.review, entity.name.tag.item.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline comment</string>
+			<key>match</key>
+			<string>#@# .*$</string>
+			<key>name</key>
+			<string>comment.block.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>itemzed line with number</string>
+			<key>match</key>
+			<string>^ [0-9]+\. .+$</string>
+			<key>name</key>
+			<string>entity.name.tag.item.numerical.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>defenition title</string>
+			<key>match</key>
+			<string>^ \: .+$</string>
+			<key>name</key>
+			<string>entity.name.tag.item.dt.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>defenition item</string>
+			<key>match</key>
+			<string>^    .+$</string>
+			<key>name</key>
+			<string>entity.name.tag.item.dd.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline links</string>
+			<key>match</key>
+			<string>@&lt;(href|table|img|list)&gt;{[^{]+}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.link.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>
 			<string>inline href link</string>
 			<key>match</key>
-			<string>@&lt;(href|table|img)&gt;{[^{]+}</string>
+			<string>@&lt;chapref&gt;\[[^\[]*\]\[[^\[]*\]</string>
 			<key>name</key>
-			<string>keyword.text.review.inline.link</string>
+			<string>entity.name.tag.inline.chapref.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline footnote link</string>
+			<key>match</key>
+			<string>@&lt;fn&gt;{[^\[]*}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.footnote.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline break</string>
+			<key>match</key>
+			<string>@&lt;br&gt;{}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.break.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>
 			<string>inline character decoration</string>
 			<key>match</key>
-			<string>@&lt;(b|i|tt)&gt;{[^{]+}</string>
+			<string>@&lt;(b|i|tt|tti|ttb)&gt;{[^{]+}</string>
 			<key>name</key>
-			<string>keyword.text.review.inline.decoration</string>
+			<string>entity.name.tag.inline.decoration.review</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
