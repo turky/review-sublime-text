@@ -7,44 +7,73 @@
        "comment": "header line"
   	},
   	{  "name": "string.unquoted.block.begin.image.review",
-       "begin": "^//image\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
-       "end": "^//}$",
+       "match": "^//image\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
        "comment": "image block"
   	},
+    {  "name": "string.unquoted.block.begin.indep.image.review",
+       "match": "^//indepimage\\[[^\\[]*\\]$",
+       "comment": "non numbered image"
+    },
     {  "name": "string.unquoted.block.begin.table.review",
        "match": "^//table\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
-       "end": "^//}$",
        "comment": "table block"
     },
     {  "name": "string.unquoted.block.begin.list.review",
        "match": "^//list\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
-       "end": "^//}$",
        "comment": "list block"
     }, 
     {  "name": "string.unquoted.block.begin.emlist.review",
        "match": "^//emlist{$",
-       "end": "^//}$",
+       "comment": "embeded list block"
+    }, 
+    {  "name": "string.unquoted.block.begin.sourcecode.review",
+       "match": "^//source\\[[^\\[]*\\]{$",
+       "comment": "source code block"
+    }, 
+    {  "name": "string.unquoted.block.begin.numberedlist.review",
+       "match": "^//listnum\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
+       "comment": "embeded list block"
+    }, 
+    {  "name": "string.unquoted.block.begin.numberedemlist.review",
+       "match": "^//emlistnum{$",
        "comment": "embeded list block"
     }, 
     {  "name": "string.unquoted.block.begin.cmd.review",
        "match": "^//cmd{$",
-       "end": "^//}$",
        "comment": "cmd block"
+    },
+    {  "name": "string.unquoted.block.begin.graph.review",
+       "match": "^//graph\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
+       "comment": "graph block"
     },
     {  "name": "string.unquoted.block.begin.quote.review",
        "match": "^//quote{$",
-       "end": "^//}$",
        "comment": "embeded list block"
     }, 
   	{  "name": "string.unquoted.block.begin.caution.review",
        "match": "^//caution{$",
-       "end": "^//}$",
        "comment": "caution block"
   	},
   	{  "name": "string.unquoted.block.begin.note.review",
        "match": "^//note{",
        "comment": "note block begin"
   	},
+    {  "name": "string.unquoted.block.begin.bibpaper.review",
+       "match": "^//bibpaper\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
+       "comment": "biblio and paper block"
+    },
+    {  "name": "string.unquoted.block.begin.lead.review",
+       "match": "^//lead{$",
+       "comment": "lead block"
+    },
+    {  "name": "string.unquoted.block.begin.texequation.review",
+       "match": "^//texequation{$",
+       "comment": "tex expression block"
+    },
+    {  "name": "string.unquoted.block.begin.comment.review",
+       "match": "^//comment{$",
+       "comment": "comment block"
+    },
     {  "name": "string.unquoted.block.end.block.review",
        "match": "//}",
        "comment": "block end"
@@ -53,12 +82,17 @@
        "match": "^//footnote\\[[^\\[]*\\]\\[[^\\[]*\\]",
        "comment": "footnote text"
     },
+    {  "name": "string.unquoted.block.column.review",
+       "begin": "^=+\\[column\\].+$",
+       "end": "^=+\\[/column\\]$",
+       "comment": "column block"
+    },
     {  "name": "string.unquoted.block.raw.review",
-       "match": "//raw\\[\\|[^\\[]*\\|[^\\[]*\\] *$",
+       "match": "//raw\\[\\|(html|latex|idgxml|top)\\|[^\\[]*\\]",
        "comment": "embeded raw markup"
     },
-    {  "name": "punctuation.definition.tag.item.review, entity.name.tag.item.review",
-       "match": "^ \\* ",
+    {  "name": "entity.name.tag.item.review",
+       "match": "^ \\*+ ",
        "comment": "itemzed line"
     },
     {  "name": "comment.block.review",
@@ -86,8 +120,20 @@
        "comment": "inline href link"
     },
     {  "name": "entity.name.tag.inline.footnote.review",
-       "match": "@<fn>{[^\\[]*}",
+       "match": "@<fn>{[^\\{}]*}",
        "comment": "inline footnote link"
+    },
+    {  "name": "entity.name.tag.inline.biblio.review",
+       "match": "@<bib>{[^{]+}",
+       "comment": "inline biblio link"
+    },
+    {  "name": "entity.name.tag.inline.code.review",
+       "match": "@<code>{[^\\{}]*}",
+       "comment": "inline code"
+    },
+    {  "name": "entity.name.tag.inline.comment.review",
+       "match": "@<comment>{[^\\{}]*}",
+       "comment": "inline code"
     },
     {  "name": "entity.name.tag.inline.break.review",
        "match": "@<br>{}",
@@ -96,6 +142,10 @@
     {  "name": "entity.name.tag.inline.decoration.review",
        "match": "@<(b|i|tt|tti|ttb)>{[^{]+}",
        "comment": "inline character decoration"
+    },
+    {  "name": "entity.name.tag.noindent.review",
+       "match": "^//noindent$",
+       "comment": "noindent tag"
     }
   ],
   "uuid": "27585c4b-1fc5-4c7c-9c56-27acab912039"
