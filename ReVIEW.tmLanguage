@@ -19,20 +19,24 @@
 			<string>entity.name.tag.header.review</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^//image\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>comment</key>
 			<string>image block</string>
-			<key>end</key>
-			<string>^//}$</string>
+			<key>match</key>
+			<string>^//image\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>name</key>
 			<string>string.unquoted.block.begin.image.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>non numbered image</string>
+			<key>match</key>
+			<string>^//indepimage\[[^\[]*\]$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.indep.image.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>table block</string>
-			<key>end</key>
-			<string>^//}$</string>
 			<key>match</key>
 			<string>^//table\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>name</key>
@@ -41,8 +45,6 @@
 		<dict>
 			<key>comment</key>
 			<string>list block</string>
-			<key>end</key>
-			<string>^//}$</string>
 			<key>match</key>
 			<string>^//list\[[^\[]*\]\[[^\[]*\]{$</string>
 			<key>name</key>
@@ -51,8 +53,6 @@
 		<dict>
 			<key>comment</key>
 			<string>embeded list block</string>
-			<key>end</key>
-			<string>^//}$</string>
 			<key>match</key>
 			<string>^//emlist{$</string>
 			<key>name</key>
@@ -60,9 +60,31 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>source code block</string>
+			<key>match</key>
+			<string>^//source\[[^\[]*\]{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.sourcecode.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>embeded list block</string>
+			<key>match</key>
+			<string>^//listnum\[[^\[]*\]\[[^\[]*\]{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.numberedlist.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>embeded list block</string>
+			<key>match</key>
+			<string>^//emlistnum{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.numberedemlist.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>cmd block</string>
-			<key>end</key>
-			<string>^//}$</string>
 			<key>match</key>
 			<string>^//cmd{$</string>
 			<key>name</key>
@@ -70,9 +92,15 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>graph block</string>
+			<key>match</key>
+			<string>^//graph\[[^\[]*\]\[[^\[]*\]{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.graph.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>embeded list block</string>
-			<key>end</key>
-			<string>^//}$</string>
 			<key>match</key>
 			<string>^//quote{$</string>
 			<key>name</key>
@@ -81,8 +109,6 @@
 		<dict>
 			<key>comment</key>
 			<string>caution block</string>
-			<key>end</key>
-			<string>^//}$</string>
 			<key>match</key>
 			<string>^//caution{$</string>
 			<key>name</key>
@@ -95,6 +121,38 @@
 			<string>^//note{</string>
 			<key>name</key>
 			<string>string.unquoted.block.begin.note.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>biblio and paper block</string>
+			<key>match</key>
+			<string>^//bibpaper\[[^\[]*\]\[[^\[]*\]{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.bibpaper.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>lead block</string>
+			<key>match</key>
+			<string>^//lead{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.lead.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>tex expression block</string>
+			<key>match</key>
+			<string>^//texequation{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.texequation.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>comment block</string>
+			<key>match</key>
+			<string>^//comment{$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.comment.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -113,10 +171,20 @@
 			<string>string.unquoted.block.footnote.review</string>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>^=+\[column\].+$</string>
+			<key>comment</key>
+			<string>column block</string>
+			<key>end</key>
+			<string>^=+\[/column\]$</string>
+			<key>name</key>
+			<string>string.unquoted.block.column.review</string>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>embeded raw markup</string>
 			<key>match</key>
-			<string>//raw\[\|[^\[]*\|[^\[]*\] *$</string>
+			<string>//raw\[\|(html|latex|idgxml|top)\|[^\[]*\]</string>
 			<key>name</key>
 			<string>string.unquoted.block.raw.review</string>
 		</dict>
@@ -124,9 +192,9 @@
 			<key>comment</key>
 			<string>itemzed line</string>
 			<key>match</key>
-			<string>^ \* </string>
+			<string>^ \*+ </string>
 			<key>name</key>
-			<string>punctuation.definition.tag.item.review, entity.name.tag.item.review</string>
+			<string>entity.name.tag.item.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -180,9 +248,33 @@
 			<key>comment</key>
 			<string>inline footnote link</string>
 			<key>match</key>
-			<string>@&lt;fn&gt;{[^\[]*}</string>
+			<string>@&lt;fn&gt;{[^\{}]*}</string>
 			<key>name</key>
 			<string>entity.name.tag.inline.footnote.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline biblio link</string>
+			<key>match</key>
+			<string>@&lt;bib&gt;{[^{]+}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.biblio.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline code</string>
+			<key>match</key>
+			<string>@&lt;code&gt;{[^\{}]*}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.code.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline code</string>
+			<key>match</key>
+			<string>@&lt;comment&gt;{[^\{}]*}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.comment.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -199,6 +291,14 @@
 			<string>@&lt;(b|i|tt|tti|ttb)&gt;{[^{]+}</string>
 			<key>name</key>
 			<string>entity.name.tag.inline.decoration.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>noindent tag</string>
+			<key>match</key>
+			<string>^//noindent$</string>
+			<key>name</key>
+			<string>entity.name.tag.noindent.review</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
