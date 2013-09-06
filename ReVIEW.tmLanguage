@@ -38,7 +38,7 @@
 			<key>comment</key>
 			<string>table block</string>
 			<key>match</key>
-			<string>^//table\[[^\[]*\]\[[^\[]*\]{$</string>
+			<string>^//table\[[^\[]*\]\[*[^\[]*\]*{$</string>
 			<key>name</key>
 			<string>string.unquoted.block.begin.table.review</string>
 		</dict>
@@ -156,6 +156,22 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>raw block</string>
+			<key>match</key>
+			<string>^//raw\[[^\[]*\]$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.raw</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>comment block</string>
+			<key>match</key>
+			<string>^//(tip|caution|note|){$</string>
+			<key>name</key>
+			<string>string.unquoted.block.begin.captionedtext.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>block end</string>
 			<key>match</key>
 			<string>//}</string>
@@ -238,6 +254,14 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>inline code</string>
+			<key>match</key>
+			<string>@&lt;chap&gt;{[^\{}]*}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.chap.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>inline href link</string>
 			<key>match</key>
 			<string>@&lt;chapref&gt;\[[^\[]*\]\[[^\[]*\]</string>
@@ -288,9 +312,17 @@
 			<key>comment</key>
 			<string>inline character decoration</string>
 			<key>match</key>
-			<string>@&lt;(b|i|tt|tti|ttb)&gt;{[^{]+}</string>
+			<string>@&lt;(b|i|tt|tti|ttb|sub|sup)&gt;{[^{]+}</string>
 			<key>name</key>
 			<string>entity.name.tag.inline.decoration.review</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>inline raw</string>
+			<key>match</key>
+			<string>@&lt;raw&gt;{[^\{}]*}</string>
+			<key>name</key>
+			<string>entity.name.tag.inline.raw.review</string>
 		</dict>
 		<dict>
 			<key>comment</key>

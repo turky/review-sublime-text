@@ -15,7 +15,7 @@
        "comment": "non numbered image"
     },
     {  "name": "string.unquoted.block.begin.table.review",
-       "match": "^//table\\[[^\\[]*\\]\\[[^\\[]*\\]{$",
+       "match": "^//table\\[[^\\[]*\\]\\[*[^\\[]*\\]*{$",
        "comment": "table block"
     },
     {  "name": "string.unquoted.block.begin.list.review",
@@ -74,6 +74,14 @@
        "match": "^//comment{$",
        "comment": "comment block"
     },
+    {  "name": "string.unquoted.block.begin.raw",
+       "match": "^//raw\\[[^\\[]*\\]$",
+       "comment": "raw block"
+    },
+    {  "name": "string.unquoted.block.begin.captionedtext.review",
+       "match": "^//(tip|caution|note|){$",
+       "comment": "comment block"
+    },
     {  "name": "string.unquoted.block.end.block.review",
        "match": "//}",
        "comment": "block end"
@@ -115,6 +123,10 @@
        "match": "@<(href|table|img|list)>{[^{]+}",
        "comment": "inline links"
     },
+    {  "name": "entity.name.tag.inline.chap.review",
+       "match": "@<chap>{[^\\{}]*}",
+       "comment": "inline code"
+    },
     {  "name": "entity.name.tag.inline.chapref.review",
        "match": "@<chapref>\\[[^\\[]*\\]\\[[^\\[]*\\]",
        "comment": "inline href link"
@@ -140,8 +152,12 @@
        "comment": "inline break"
     },
     {  "name": "entity.name.tag.inline.decoration.review",
-       "match": "@<(b|i|tt|tti|ttb)>{[^{]+}",
+       "match": "@<(b|i|tt|tti|ttb|sub|sup)>{[^{]+}",
        "comment": "inline character decoration"
+    },
+    {  "name": "entity.name.tag.inline.raw.review",
+       "match": "@<raw>{[^\\{}]*}",
+       "comment": "inline raw"
     },
     {  "name": "entity.name.tag.noindent.review",
        "match": "^//noindent$",
