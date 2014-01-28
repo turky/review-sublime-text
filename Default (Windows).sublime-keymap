@@ -1,0 +1,32 @@
+[
+    {
+        "keys": ["ctrl+alt+b"], "command": "insert_inline_bold",
+    },
+    {
+        "keys": ["ctrl+alt+t"], "command": "insert_inline_typewriter",
+    },
+    {
+        "keys": ["ctrl+alt+i"], "command": "insert_inline_italic",
+    },
+    {
+        "keys": ["ctrl+alt+m"], "command": "insert_inline_img",
+    },
+    {
+        "keys": ["ctrl+alt+r"], "command": "insert_inline_br",
+    },
+    {
+        "keys": ["ctrl+alt+c"], "command": "insert_comment",
+    },
+    {
+        "keys": ["ctrl+alt+w"], "command": "insert_inline_raw",
+    },
+    {
+        "keys": ["ctrl+alt+f"], "command": "insert_inline_footnote",
+    },
+    {
+        "keys": ["ctrl+alt+,"], "command": "insert_inline_sup",
+    },
+    {
+        "keys": ["ctrl+alt+."], "command": "insert_inline_sub",
+    }
+]
